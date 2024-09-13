@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MI PRIMER APP HOLA MUNDO</string>
+
+    <string name="faqs_button_error_text">No se puede abrir las preguntas de ayuda en este momento. Intente mas tarde!</string>
+    <string name="login_button_text">Iniciar sesion</string>
+    <string name="register_button_text">No tenes cuenta? Registrate!</string>
+    <string name="welcome_text">Bienvenido a mi App!</string>
+</resources>
