@@ -28,6 +28,12 @@ class LoginActivity : Activity() {
             Toast.makeText(this, getString(R.string.faqs_button_error_text), Toast.LENGTH_SHORT).show()
         }
 
+        binding.loginButton.setOnClickListener {
+            val loginIntent = Intent(this, HomeActivity::class.java)
+            startActivity(loginIntent)
+
+        }
+
         binding.registerButton.setOnClickListener {
             val user = User(
                 name = "",
