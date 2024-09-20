@@ -1,19 +1,16 @@
 package com.example.helloworld.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.helloworld.R
 import com.example.helloworld.databinding.ActivityHomeBinding
 import com.example.helloworld.ui.colorRecyclerView.Color
+import com.example.helloworld.ui.colorRecyclerView.ColorItemClickListener
 import com.example.helloworld.ui.colorRecyclerView.ColorListAdapter
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), ColorItemClickListener {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -30,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
 
         val recyclerView = binding.colorRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ColorListAdapter(data)
+        recyclerView.adapter = ColorListAdapter(data, this)
     }
 
     private fun initColor() {
@@ -58,6 +55,14 @@ class HomeActivity : AppCompatActivity() {
         data.add(Color(getString(R.string.orange), getString(R.string.orangeHex)))
         data.add(Color(getString(R.string.brown), getString(R.string.brownHex)))
         data.add(Color(getString(R.string.grey), getString(R.string.greyHex)))
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this, "Color seleccionado: ${data.get(position).name}", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onButtonClickListener(color: Color) {
+        Toast.makeText(this, "Hexadecimal seleccionado: ${color.hex}", Toast.LENGTH_SHORT).show()
     }
 
 }
