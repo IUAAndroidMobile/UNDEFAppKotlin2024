@@ -22,10 +22,11 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initColor()
-
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initColor()
+
 
         val recyclerView = binding.colorRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -34,42 +35,29 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initColor() {
 
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.yellow), resources.getColor(R.color.yellow).toString()))
-        data.add(Color(getString(R.string.indigo), resources.getColor(R.color.indigo).toString()))
-        data.add(Color(getString(R.string.green), resources.getColor(R.color.green).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.blue), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.amber), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.yellow), resources.getColor(R.color.yellow).toString()))
-        data.add(Color(getString(R.string.indigo), resources.getColor(R.color.indigo).toString()))
-        data.add(Color(getString(R.string.green), resources.getColor(R.color.green).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.blue), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.amber), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.yellow), resources.getColor(R.color.yellow).toString()))
-        data.add(Color(getString(R.string.indigo), resources.getColor(R.color.indigo).toString()))
-        data.add(Color(getString(R.string.green), resources.getColor(R.color.green).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.blue), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.amber), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.yellow), resources.getColor(R.color.yellow).toString()))
-        data.add(Color(getString(R.string.indigo), resources.getColor(R.color.indigo).toString()))
-        data.add(Color(getString(R.string.green), resources.getColor(R.color.green).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.blue), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.amber), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.yellow), resources.getColor(R.color.yellow).toString()))
-        data.add(Color(getString(R.string.indigo), resources.getColor(R.color.indigo).toString()))
-        data.add(Color(getString(R.string.green), resources.getColor(R.color.green).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.yellow), resources.getColor(R.color.yellow).toString()))
-        data.add(Color(getString(R.string.indigo), resources.getColor(R.color.indigo).toString()))
-        data.add(Color(getString(R.string.green), resources.getColor(R.color.green).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
-        data.add(Color(getString(R.string.red), resources.getColor(R.color.red).toString()))
+        data.add(Color(getString(R.string.red), getString(R.string.redHex)))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex)))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex)))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex)))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex)))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex)))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex)))
+
+        data.add(Color(getString(R.string.red), getString(R.string.redHex)))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex)))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex)))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex)))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex)))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex)))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex)))
+
+        data.add(Color(getString(R.string.red), getString(R.string.redHex)))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex)))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex)))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex)))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex)))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex)))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex)))
     }
 
 }
