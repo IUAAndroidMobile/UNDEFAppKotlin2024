@@ -10,25 +10,39 @@ import com.example.helloworld.R
 class ColorListAdapter(
     private val data: List<Color>,
     private val itemClickListener: ColorItemClickListener
-) : RecyclerView.Adapter<ColorViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
-        val row = LayoutInflater.from(parent.context).inflate(R.layout.color_item, parent, false)
-        return ColorViewHolder(row, itemClickListener, data)
+    val COLOR_ITEM = 1
+    val COLOR_TITLE = 2
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        if (viewType == COLOR_ITEM) {
+            val row =
+                LayoutInflater.from(parent.context).inflate(R.layout.color_item, parent, false)
+            return ColorViewHolder(row, itemClickListener, data)
+        } else {
+            val row =
+                LayoutInflater.from(parent.context).inflate(R.layout.title_color_item, parent, false)
+            return ColorTitleViewHolder(row)
+        }
     }
 
-    override fun onBindViewHolder(holder: ColorViewHolder, position: Int) {
-        val color = data.get(position)
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val color = data[position]
+        if (holder is ColorViewHolder) {
+            holder.colorTitle.setText(color.name)
+            holder.colorSubtitle.setText(color.hex)
 
-        holder.colorTitle.setText(color.name)
-        holder.colorSubtitle.setText(color.hex)
-
-        val gradient = android.graphics.Color.parseColor(color.hex)
-        holder.circleView.setBackgroundColor(gradient)
+            val gradient = android.graphics.Color.parseColor(color.hex)
+            holder.circleView.setBackgroundColor(gradient)
+        } else if (holder is ColorTitleViewHolder) {
+            holder.colorTitle.setText(color.title)
+        }
     }
 
     override fun getItemCount(): Int = data.size
 
+    override fun getItemViewType(position: Int): Int  = data[position].type
 }
 
 class ColorViewHolder(itemView: View, private val itemClickListener: ColorItemClickListener, private val data: List<Color>,) : RecyclerView.ViewHolder(itemView) {
@@ -47,6 +61,10 @@ class ColorViewHolder(itemView: View, private val itemClickListener: ColorItemCl
         }
 
     }
+}
+
+class ColorTitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    var colorTitle: TextView = itemView.findViewById(R.id.titleColor)
 }
 
 interface ColorItemClickListener {
