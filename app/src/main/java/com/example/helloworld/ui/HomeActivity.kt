@@ -1,19 +1,16 @@
 package com.example.helloworld.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.helloworld.R
 import com.example.helloworld.databinding.ActivityHomeBinding
 import com.example.helloworld.ui.colorRecyclerView.Color
+import com.example.helloworld.ui.colorRecyclerView.ColorItemClickListener
 import com.example.helloworld.ui.colorRecyclerView.ColorListAdapter
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), ColorItemClickListener {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -27,37 +24,62 @@ class HomeActivity : AppCompatActivity() {
 
         initColor()
 
-
         val recyclerView = binding.colorRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = ColorListAdapter(data)
+        recyclerView.adapter = ColorListAdapter(data, this)
     }
 
     private fun initColor() {
 
-        data.add(Color(getString(R.string.red), getString(R.string.redHex)))
-        data.add(Color(getString(R.string.green), getString(R.string.greenHex)))
-        data.add(Color(getString(R.string.blue), getString(R.string.blueHex)))
-        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex)))
-        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex)))
-        data.add(Color(getString(R.string.brown), getString(R.string.brownHex)))
-        data.add(Color(getString(R.string.grey), getString(R.string.greyHex)))
+        data.add(Color(title = "Colores primarios", type = 2))
+        data.add(Color(getString(R.string.red), getString(R.string.redHex), type = 1))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex),type = 1))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex), type = 1))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex), type = 1))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex), type = 1))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex), type = 1))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex), type = 1))
 
-        data.add(Color(getString(R.string.red), getString(R.string.redHex)))
-        data.add(Color(getString(R.string.green), getString(R.string.greenHex)))
-        data.add(Color(getString(R.string.blue), getString(R.string.blueHex)))
-        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex)))
-        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex)))
-        data.add(Color(getString(R.string.brown), getString(R.string.brownHex)))
-        data.add(Color(getString(R.string.grey), getString(R.string.greyHex)))
+        data.add(Color(title = "Colores secundarios", type = 2))
+        data.add(Color(getString(R.string.red), getString(R.string.redHex), type = 1))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex),type = 1))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex), type = 1))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex), type = 1))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex), type = 1))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex), type = 1))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex), type = 1))
 
-        data.add(Color(getString(R.string.red), getString(R.string.redHex)))
-        data.add(Color(getString(R.string.green), getString(R.string.greenHex)))
-        data.add(Color(getString(R.string.blue), getString(R.string.blueHex)))
-        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex)))
-        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex)))
-        data.add(Color(getString(R.string.brown), getString(R.string.brownHex)))
-        data.add(Color(getString(R.string.grey), getString(R.string.greyHex)))
+        data.add(Color(title = "Mas colores", type = 2))
+        data.add(Color(getString(R.string.red), getString(R.string.redHex), type = 1))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex),type = 1))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex), type = 1))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex), type = 1))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex), type = 1))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex), type = 1))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex), type = 1))
+        data.add(Color(getString(R.string.red), getString(R.string.redHex), type = 1))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex),type = 1))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex), type = 1))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex), type = 1))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex), type = 1))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex), type = 1))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex), type = 1))
+        data.add(Color(getString(R.string.red), getString(R.string.redHex), type = 1))
+        data.add(Color(getString(R.string.green), getString(R.string.greenHex),type = 1))
+        data.add(Color(getString(R.string.blue), getString(R.string.blueHex), type = 1))
+        data.add(Color(getString(R.string.yellow), getString(R.string.yellowHex), type = 1))
+        data.add(Color(getString(R.string.orange), getString(R.string.orangeHex), type = 1))
+        data.add(Color(getString(R.string.brown), getString(R.string.brownHex), type = 1))
+        data.add(Color(getString(R.string.grey), getString(R.string.greyHex), type = 1))
+
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this, "Color seleccionado: ${data.get(position).name}", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onButtonClickListener(color: Color) {
+        Toast.makeText(this, "Hexadecimal seleccionado: ${color.hex}", Toast.LENGTH_SHORT).show()
     }
 
 }
