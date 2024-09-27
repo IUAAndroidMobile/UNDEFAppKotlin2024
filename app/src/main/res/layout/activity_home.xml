@@ -4,13 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/black"
     android:fitsSystemWindows="true"
     tools:context=".ui.HomeActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/colorRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/homeBottomBar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp"
         tools:listitem="@layout/color_item" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/homeBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_bar_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

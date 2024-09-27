@@ -31,7 +31,6 @@ class LoginActivity : Activity() {
         binding.loginButton.setOnClickListener {
             val loginIntent = Intent(this, HomeActivity::class.java)
             startActivity(loginIntent)
-
         }
 
         binding.registerButton.setOnClickListener {
