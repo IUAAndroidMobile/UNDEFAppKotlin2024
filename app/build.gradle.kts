@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.container.composeContainer
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -78,4 +80,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.navigation.compose)
+    // Views/Fragments Integration
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+
+    // Feature module support for Fragments
+    implementation(libs.navigation.dynamic.features.fragment)
+
+    // Testing Navigation
+    androidTestImplementation(libs.navigation.testing)
+
 }
