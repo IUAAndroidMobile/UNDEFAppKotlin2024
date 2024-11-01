@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mailActivity"
+        android:icon="@drawable/ic_email"
+        android:title="Mis correos"/>
+
+    <item
+        android:id="@+id/Activity2"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Mi funcionalidad 2"/>
+
+    <item
+        android:id="@+id/Activity3"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Mis Funcionalidad 3"/>
+
+</menu>
