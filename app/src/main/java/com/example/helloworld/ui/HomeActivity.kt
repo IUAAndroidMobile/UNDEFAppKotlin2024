@@ -7,10 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.helloworld.R
 import com.example.helloworld.databinding.ActivityHomeBinding
+import com.example.helloworld.domain.ColorRepository
 import com.example.helloworld.features.mail.ui.MailActivity
 import com.example.helloworld.ui.colorRecyclerView.Color
 import com.example.helloworld.ui.colorRecyclerView.ColorItemClickListener
 import com.example.helloworld.ui.colorRecyclerView.ColorListAdapter
+import com.example.helloworld.ui.viewmodels.HomeViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity(), ColorItemClickListener {
 
@@ -18,15 +22,20 @@ class HomeActivity : AppCompatActivity(), ColorItemClickListener {
 
     private val data = mutableListOf<Color>()
 
+    private lateinit var viewModel: HomeViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         initRecyclerView()
         initBottomBar()
+        GlobalScope.launch {
+            viewModel = HomeViewModel(ColorRepository())
+            viewModel.insertColor(Color(getString(R.string.red), getString(R.string.redHex), type = 1))
+        }
     }
 
     private fun initBottomBar() {
@@ -53,6 +62,9 @@ class HomeActivity : AppCompatActivity(), ColorItemClickListener {
     }
 
     private fun initColor() {
+
+
+
         data.add(Color(title = "Colores primarios", type = 2))
         data.add(Color(getString(R.string.red), getString(R.string.redHex), type = 1))
         data.add(Color(getString(R.string.green), getString(R.string.greenHex), type = 1))
